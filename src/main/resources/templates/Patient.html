@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="StyleSheet" href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css">
+    <script src="/webjars/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="StyleSheet" href="/webjars/bootstrap-icons/1.11.3/font/bootstrap-icons.css">
+</head>
+<body>
+    <div class="p-3"></div>
+    <div class="card">
+        <div class="card-header">Liste Patient</div>
+        <div class="card-body">
+            <form method="get" th:action="@{index}">
+                <label>Keyword:</label>
+                <input type="text" name="Keyword" th:value="${Keyword}">
+                <button type="submit" class="btn btn-info">
+                    <i class="bi bi-search"></i>
+                </button>
+            </form>
+            <table class="Table">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Malade</th>
+                    <th>Score</th>
+                </tr>
+
+                <tr th:each="P.${ListePatient}">
+                    <td th:text="${P.Id}"></td>
+                    <td th:text="${P.Name}"></td>
+                    <td th:text="${P.DateNaissance}"></td>
+                    <td th:text="${P.Malade}"></td>
+                    <td th:text="${P.Score}"></td>
+                    <td>
+                        <a onclick="javascript:return confirm('Etes Vous Sure?')"
+                           th:href="@{Delete(Id=${P.Id}, Keyword=${Keyword}, Page=${CurrentPage})}" class="btn btn-danger">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+                </thead>
+            </table>
+            <ul class="nav nav-pills">
+                <li th:each="v,item:${Page}">
+                    <a th:href="@{/index(Page=${item.index}, Keyword=${Keyword})}"
+                       th:class="${(CurrentPage==item.index)?'btn btn-info ms-1':'btn-btn-outline-info ms-1'}"
+                       th:text="${item.index}"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

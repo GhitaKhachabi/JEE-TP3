@@ -1,7 +1,7 @@
 package ma.emsi.hopital;
 
-import ma.emsi.hopital.Entities.Patient;
-import ma.emsi.hopital.Repositories.PatientRepository;
+import ma.emsi.hopital.entities.Patient;
+import ma.emsi.hopital.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

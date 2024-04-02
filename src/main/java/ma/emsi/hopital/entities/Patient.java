@@ -1,4 +1,4 @@
-package ma.emsi.hopital.Entities;
+package ma.emsi.hopital.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,9 +13,9 @@ import java.util.Date;
 public class Patient {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
-    private String Name;
-    private Date DateNaissance;
-    private boolean Malade;
-    private int Score;
+    private Long id;
+    private String nom;
+    private Date dateNaissance;
+    private boolean malade;
+    private int score;
 }
